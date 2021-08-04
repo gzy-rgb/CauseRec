@@ -1,1 +1,1 @@
-# Implentation of CauseRec: Counterfactual User Sequence Synthesis for Sequential Recommendation
+## Implentation of CauseRec: Counterfactual User Sequence Synthesis for Sequential Recommendation
