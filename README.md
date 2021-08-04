@@ -2,5 +2,5 @@
 
 ### Dataset:
 amazon-book
-### Link of data
+### Link of data:
 https://github.com/THUDM/ComiRec
