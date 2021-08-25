@@ -28,13 +28,6 @@ class CauseRec(nn.Module):
         self.DCT_num = 4
         self.RCT_num = 4
         self.bank_size = 1024
-        # self.critical_set_size = 64
-        # self.inessential_set_size = 64
-        # self.memory_bank_size = 100
-        # self.random_user_size = 5
-        # self.alpha = 0.8
-        # self.num_embeddings = 3952
-        # embedding layer
         self.embedding_layer = torch.nn.Embedding(self.item_num + 1, self.embedding_dim)
 
         self.proposal_num = 20
@@ -57,7 +50,6 @@ class CauseRec(nn.Module):
 
 
     def gen_dict(self, item_profile):
-        # print(item_embedding_dict.shape)
         self.item_embedding_dict = torch.cat([torch.tensor([[0] * self.embedding_dim]).to(self.device),
                                               self.embedding_layer(item_profile.to(self.device))])
 
