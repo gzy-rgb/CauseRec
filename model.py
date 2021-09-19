@@ -73,7 +73,7 @@ class CauseRec(nn.Module):
         proposal_score = torch.matmul(proposals_weight, torch.transpose(item_score, 1, 2))
         proposal_score = torch.squeeze(proposal_score)
         '''
-        _, ranked_proposal = torch.sort(proposal_score,descending=True)
+        _, ranked_proposal = torch.sort(proposal_score)
         return watch_proposals, ranked_proposal, ranked_item
 
     def create_embedding(self, watch_movie):
@@ -386,7 +386,7 @@ if __name__ == '__main__':
             #print(loss1, loss_pos, loss_neg)
                 with open(file_name + ".txt", "a") as f:
                     if i != 1 and i % 200 == 1:
-                        f.write('epoch: ' + str(epoch) + ', ' + 'batch: ' + str(i) + ', ' + 'loss: ' + str(loss.item()) + 'loss_pos: ' + str(loss_pos.item())+ 'loss_neg: ' + str(loss_neg.item())+'\n')
+                        f.write('epoch: ' + str(epoch) + ', ' + 'batch: ' + str(i) + ', ' + 'loss: ' + str(loss.item())+'\n')
                 optimizer.zero_grad()
                 loss.backward()
                 optimizer.step()
