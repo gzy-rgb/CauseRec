@@ -116,7 +116,7 @@ class CauseRec(nn.Module):
         proposal_score = torch.matmul(next_item_embedding, torch.transpose(watch_proposals, 1, 2))
         proposal_score = torch.matmul(proposals_weight, torch.transpose(proposal_score, 1, 2))
         proposal_score = torch.squeeze(proposal_score)
-        _, ranked_idx = torch.sort(proposal_score,descending=True)
+        _, ranked_idx = torch.sort(proposal_score)
         return ranked_idx
 
 
