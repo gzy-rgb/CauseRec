@@ -324,7 +324,7 @@ if __name__ == '__main__':
     model = CauseRec(device)
     model = model.to(device)
     lr = 0.003
-    weight_decay=1e-07
+    weight_decay=1e-06
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
 
     cross_entropy_loss = nn.CrossEntropyLoss()
