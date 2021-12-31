@@ -13,9 +13,9 @@ def gen_train_set(data, negsample=0):
         pos_list = hist['sid'].tolist()
         #rating_list = hist['rating'].tolist()
 
-        if negsample > 0:
-            candidate_set = list(set(item_ids) - set(pos_list))
-            neg_list = np.random.choice(candidate_set,size=len(pos_list)*negsample,replace=True)
+#         if negsample > 0:
+#             candidate_set = list(set(item_ids) - set(pos_list))
+#             neg_list = np.random.choice(candidate_set,size=len(pos_list)*negsample,replace=True)
         
         for i in range(1, len(pos_list)):
             hist = pos_list[:i]
@@ -55,8 +55,8 @@ def gen_test_set(data, negsample=0):
         i = int(len(pos_list)*0.8)
         hist = pos_list[:i]
         test_set.append((reviewerID, hist[::-1], pos_list[i:], 1, len(hist[::-1])))
-        for negi in range(negsample):
-            train_set.append((reviewerID, hist[::-1], neg_list[i*negsample+negi], 0,len(hist[::-1])))
+#         for negi in range(negsample):
+#             train_set.append((reviewerID, hist[::-1], neg_list[i*negsample+negi], 0,len(hist[::-1])))
         
         '''
         end = len(pos_list)-per_length[reviewerID-1]
